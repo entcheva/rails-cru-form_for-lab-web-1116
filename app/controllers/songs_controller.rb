@@ -13,13 +13,15 @@ class SongsController < ApplicationController
 
   def create
     # create an item
-    @song = Song.create(song_params(name: params[:name]))
+    @song = Song.create(song_params(:name))
     redirect_to song_path(@song)
   end
 
   def show
     # show item with :id
     @song = Song.find(params[:id])
+    @genre = Genre.find(params[:id])
+    @artist = Artist.find(params[:id])
   end
 
   def edit
@@ -30,7 +32,7 @@ class SongsController < ApplicationController
   def update
     # update item with :id
     @song = Song.find(params[:id])
-    @song.update(song_params(name: params[:name]))
+    @song.update(song_params(:name))
     redirect_to song_path(@song)
   end
 

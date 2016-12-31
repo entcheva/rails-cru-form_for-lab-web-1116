@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'navigate' do
+describe 'genre navigate' do
   before do
     @genre = Genre.create(name: "My Genre")
   end
@@ -27,7 +27,7 @@ describe 'form' do
     expect(page).to have_content("My genre name")
   end
 
-  it 'shows a new form that submits content and redirects and prints out params' do
+  it 'shows an edit form that submits content and redirects and prints out params' do
     @genre = Genre.create(name: "My Genre")
 
     visit edit_genre_path(@genre)

@@ -12,7 +12,7 @@ class ArtistsController < ApplicationController
 
   def create
     # create an item
-    @artist = Artist.create(artist_params(name: params[:name], bio: params[:bio]))
+    @artist = Artist.create(artist_params(:name, :bio))
     redirect_to artist_path(@artist)
   end
 
@@ -29,7 +29,7 @@ class ArtistsController < ApplicationController
   def update
     # update item with :id
     @artist = Artist.find(params[:id])
-    @artist.update(artist_params(name: params[:name], bio: params[:bio]))
+    @artist.update(artist_params(:name, :bio))
     redirect_to artist_path(@artist)
   end
 

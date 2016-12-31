@@ -12,7 +12,7 @@ class GenresController < ApplicationController
 
   def create
     # create an item
-    @genre = Genre.create(genre_params(name: params[:name]))
+    @genre = Genre.create(genre_params(:name))
     redirect_to genre_path(@genre)
   end
 
@@ -29,7 +29,7 @@ class GenresController < ApplicationController
   def update
     # update item with :id
     @genre = Genre.find(params[:id])
-    @genre.update(genre_params(name: params[:name]))
+    @genre.update(genre_params(:name))
     redirect_to genre_path(@genre)
   end
 
